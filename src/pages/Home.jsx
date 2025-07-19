@@ -2,10 +2,16 @@ import React from "react";
 import products from "../data/products";
 import ProductCard from "../components/Productcard";
 import { Container, Grid } from "@mui/material";
+import { Typography } from "@mui/material";
+
 
 const Home = () => {
   return (
     <Container sx={{ mt: 4 }}>
+      <Typography variant="h4" gutterBottom>
+        Explore Our Products
+      </Typography>
+
       <Grid container spacing={3}>
         {products.map((product) => (
           <Grid

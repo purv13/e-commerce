@@ -7,17 +7,17 @@ import {
   CardMedia,
   Button,
   Typography,
-  Box,
 } from "@mui/material";
 
 export default function ProductCard({ product }) {
   return (
     <Card
       sx={{
-        maxWidth: 345,
+        maxWidth: 320,
         height: "100%",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-between", // ✅ Spread content
       }}
     >
       <CardMedia
@@ -25,10 +25,11 @@ export default function ProductCard({ product }) {
         height="180"
         image={product.image}
         alt={product.name}
-        
+        sx={{ objectFit: "cover" }} // ✅ Ensure consistent image style
       />
+
       <CardContent sx={{ flexGrow: 1 }}>
-        <Typography variant="h6" component="div" gutterBottom>
+        <Typography variant="h6" gutterBottom>
           {product.name}
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
@@ -40,8 +41,15 @@ export default function ProductCard({ product }) {
             : product.description}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" variant="contained" fullWidth component={Link} to={`/product/${product.id}`}>
+
+      <CardActions sx={{ mt: "auto" }}>
+        <Button
+          size="small"
+          variant="contained"
+          fullWidth
+          component={Link}
+          to={`/product/${product.id}`}
+        >
           View Details
         </Button>
       </CardActions>
