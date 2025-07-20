@@ -49,7 +49,7 @@ const Cart = () => {
                 alt={item.name}
                 sx={{
                   height: 200,
-                  objectFit: "contain",
+                  objectFit: "cover",
                   backgroundColor: "#f5f5f5",
                 }}
               />
