@@ -51,7 +51,6 @@ const Cart = () => {
                   height: 200,
                   objectFit: "contain",
                   backgroundColor: "#f5f5f5",
-                  p: 2,
                 }}
               />
               <CardContent>
