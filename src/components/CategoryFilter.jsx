@@ -1,15 +1,26 @@
 import React from "react";
-import { Button, Stack } from "@mui/material";
+import { Button, Box } from "@mui/material";
 
-const CategoryFilter = ({ categories, selectedCategory, onSelect }) => {
+export default function CategoryFilter({ categories, selectedCategory, onSelect }) {
   return (
-    <Stack direction="row" spacing={2} mb={3} flexWrap="wrap">
+    <Box
+      sx={{
+        display: "flex",
+        gap: 1,
+        overflowX: "auto",        // ✅ horizontal scroll
+        pb: 1,
+        mt: 2,
+        mb: 3,
+        "&::-webkit-scrollbar": { display: "none" }, // ✅ hide scrollbar
+      }}
+    >
       <Button
         variant={selectedCategory === "All" ? "contained" : "outlined"}
         onClick={() => onSelect("All")}
       >
         All
       </Button>
+
       {categories.map((category) => (
         <Button
           key={category}
@@ -19,8 +30,6 @@ const CategoryFilter = ({ categories, selectedCategory, onSelect }) => {
           {category}
         </Button>
       ))}
-    </Stack>
+    </Box>
   );
-};
-
-export default CategoryFilter;
+}
